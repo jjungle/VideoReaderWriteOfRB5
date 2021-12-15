@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.6)
+PROJECT(sample)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin/)
+# find_package(OpenCV required)
+include(/home/jungle/smm/dependencies/opencv/qualcomm/lib/cmake/opencv4/OpenCVConfig.cmake)
+
+# 添加reader的demo
+add_executable(VideoReaderDome ReaderDemo.cc VideoReader.cc VideoReader.h)
+# target_link_directories(/home/jungle/smm/dependencies/opencv/qualcomm/lib)
+# target_link_libraries(VideoReaderDome PUBLIC /home/jungle/smm/dependencies/opencv/qualcomm/lib/libopencv_img_hash.so /home/jungle/smm/dependencies/opencv/qualcomm/lib/libopencv_img_hash.so.4.1 /home/jungle/smm/dependencies/opencv/qualcomm/lib/libopencv_img_hash.so.4.1.0 /home/jungle/smm/dependencies/opencv/qualcomm/lib/libopencv_world.so /home/jungle/smm/dependencies/opencv/qualcomm/lib/libopencv_world.so.4.1 /home/jungle/smm/dependencies/opencv/qualcomm/lib/libopencv_world.so.4.1.0)
+target_link_libraries(VideoReaderDome PUBLIC ${OpenCV_LIBS})
+target_link_libraries(VideoReaderDome PUBLIC "-lgstreamer-1.0 -lgobject-2.0 -lglib-2.0")
+target_include_directories(VideoReaderDome PUBLIC /usr/include/gstreamer-1.0)
+target_include_directories(VideoReaderDome PUBLIC /usr/include/gobject-2.0)
+target_include_directories(VideoReaderDome PUBLIC /usr/include/glib-2.0)
+target_include_directories(VideoReaderDome PUBLIC ${OpenCV_INCLUDE_DIRS})
+
+# 添加writer的demo
+add_executable(VideoWriterDome WriterDemo.cc VideoWriter.cc VideoWriter.h VideoReader.cc VideoReader.h)
+target_link_libraries(VideoWriterDome PUBLIC ${OpenCV_LIBS})
+target_link_libraries(VideoWriterDome PUBLIC "-lgstreamer-1.0 -lgobject-2.0 -lglib-2.0")
+target_include_directories(VideoWriterDome PUBLIC /usr/include/gstreamer-1.0)
+target_include_directories(VideoWriterDome PUBLIC /usr/include/gobject-2.0)
+target_include_directories(VideoWriterDome PUBLIC /usr/include/glib-2.0)
+target_include_directories(VideoWriterDome PUBLIC ${OpenCV_INCLUDE_DIRS})
