@@ -21,3 +21,8 @@ cd bin
 ./VideoReaderDome ../../input/input.mp4 ../../input
 ./VideoWriterDome ../../input/input.mp4 ../../input/output.mp4
 ```
+## 参考
+有关参考请看
+* [【gstreamer opencv::Mat】使用gstreamer读取视频中的每一帧为cv::Mat](https://blog.csdn.net/weixin_44495869/article/details/121898322)
+* [【gstreamer opencv::Mat】将opencv的cv::Mat数据转换成MP4视频](https://blog.csdn.net/weixin_44495869/article/details/121900517)
+* [【gstreamer中appsink和appsrc操作数据转换cv::Mat】参考文献](https://blog.csdn.net/weixin_44495869/article/details/121902501)
