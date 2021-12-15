@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.6)
 PROJECT(sample)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin/)
-# find_package(OpenCV required)
-include(/home/jungle/smm/dependencies/opencv/qualcomm/lib/cmake/opencv4/OpenCVConfig.cmake)
+find_package(OpenCV required)
+# include(/home/jungle/smm/dependencies/opencv/qualcomm/lib/cmake/opencv4/OpenCVConfig.cmake)
 
 # 添加reader的demo
 add_executable(VideoReaderDome ReaderDemo.cc VideoReader.cc VideoReader.h)
